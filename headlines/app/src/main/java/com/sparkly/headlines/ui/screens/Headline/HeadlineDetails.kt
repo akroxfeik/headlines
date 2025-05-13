@@ -4,6 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun Headline(viewModel: HeadlineViewModel = hiltViewModel()) {
+fun HeadlineDetails(viewModel: HeadlineViewModel = hiltViewModel()) {
 
 }
