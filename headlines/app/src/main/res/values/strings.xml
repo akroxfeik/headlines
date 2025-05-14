@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">headlines</string>
+    <string name="not_connected">No connection.\nPlease check if you are connected to the internet.</string>
 </resources>
