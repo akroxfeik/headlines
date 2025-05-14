@@ -13,10 +13,12 @@ import com.sparkly.headlines.ui.screens.TopHeadline.TopHeadlines
 fun AppNavHost(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Screen.List.route) {
         composable(Screen.List.route) {
-            TopHeadlines()
+            TopHeadlines(onItemClicked = {json ->
+                navController.navigate("${Screen.Details.route}/$json")
+            })
         }
-        composable(Screen.Details.route + "/{news-id}",
-            arguments = listOf(navArgument(Arg.NEWS_ID) {
+        composable(Screen.Details.route + "/{news-json}",
+            arguments = listOf(navArgument(Arg.NEWS_JSON) {
                 type = NavType.StringType
                 nullable = true
             })) {
@@ -26,5 +28,5 @@ fun AppNavHost(navController: NavHostController) {
 }
 
 object Arg {
-    const val NEWS_ID = "news-id"
+    const val NEWS_JSON = "news-json"
 }
