@@ -1,5 +1,6 @@
 package com.sparkly.headlines.di
 
+import com.sparkly.headlines.BuildConfig
 import com.sparkly.headlines.data.api.ApiHelper
 import com.sparkly.headlines.data.api.ApiHelperImpl
 import com.sparkly.headlines.data.api.ApiService
@@ -26,9 +27,29 @@ class ApplicationModule {
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+            .addInterceptor { chain ->
+                chain.proceed(
+                    chain.request()
+                        .newBuilder()
+                        .also {
+                            it.addHeader("Authorization","Bearer 3ede4ebf2ac24ef88a8d8936c75da4b2")
+                        }
+                        .build()
+                )
+            }
             .build()
     } else OkHttpClient
         .Builder()
+        .addInterceptor { chain ->
+            chain.proceed(
+                chain.request()
+                    .newBuilder()
+                    .also {
+                        it.addHeader("Authorization","Bearer 3ede4ebf2ac24ef88a8d8936c75da4b2")
+                    }
+                    .build()
+            )
+        }
         .build()
 
     @Provides
