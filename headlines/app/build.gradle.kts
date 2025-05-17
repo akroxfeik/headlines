@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.sparkly.headlines"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.sparkly.headlines"
@@ -18,6 +18,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "NEWS_SOURCE", "\"bbc-news\"")
     }
 
     buildTypes {
@@ -43,6 +45,18 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.8"
     }
+
+    flavorDimensions += "default"
+    productFlavors {
+        create("bbc") {
+            dimension = "default"
+            buildConfigField("String", "NEWS_SOURCE", "\"bbc-news\"")
+        }
+        create("cnn") {
+            dimension = "default"
+            buildConfigField("String", "NEWS_SOURCE", "\"cnn\"")
+        }
+    }
 }
 
 dependencies {
@@ -61,6 +75,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
+    implementation(libs.gson)
 
     // Dagger - Hilt
     implementation(libs.hilt.android)
