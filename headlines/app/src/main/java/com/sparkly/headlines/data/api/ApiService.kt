@@ -7,5 +7,5 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("top-headlines")
-    suspend fun getTopHeadlines(@Query("sources") sources: String?): Response<List<Headline>>
+    suspend fun getTopHeadlines(@Query("sources") sources: String?): Response<Headline>
 }

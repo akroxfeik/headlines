@@ -5,5 +5,5 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class ApiHelperImpl @Inject constructor(private val apiService: ApiService) : ApiHelper {
-    override suspend fun getTopHeadlines(source: String?): Response<List<Headline>> = apiService.getTopHeadlines(source)
+    override suspend fun getTopHeadlines(source: String?): Response<Headline> = apiService.getTopHeadlines(source)
 }
