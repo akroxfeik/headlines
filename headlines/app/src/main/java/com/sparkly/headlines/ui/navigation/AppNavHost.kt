@@ -17,7 +17,7 @@ fun AppNavHost(navController: NavHostController) {
                 navController.navigate("${Screen.Details.route}/$json")
             })
         }
-        composable(Screen.Details.route + "/{news-json}",
+        composable("${Screen.Details.route}/{${Arg.NEWS_JSON}}",
             arguments = listOf(navArgument(Arg.NEWS_JSON) {
                 type = NavType.StringType
                 nullable = true
