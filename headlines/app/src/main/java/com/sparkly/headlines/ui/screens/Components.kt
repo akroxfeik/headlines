@@ -23,11 +23,11 @@ fun LoadingBar() {
 }
 
 @Composable
-fun CustomImage(url: String?, name: String, size: Dp) {
+fun CustomImage(url: String?, name: String, size: Dp = 0.dp) {
     SubcomposeAsyncImage(
         model = url,
         contentDescription = name,
-        modifier = Modifier.size(size),
+        modifier = if (size > 0.dp) Modifier.size(size) else Modifier.fillMaxSize(),
         loading = {
             CircularProgressIndicator(Modifier.size(25.dp))
         },
