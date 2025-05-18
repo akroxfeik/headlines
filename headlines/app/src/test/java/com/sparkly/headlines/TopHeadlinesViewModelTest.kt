@@ -2,12 +2,10 @@ package com.sparkly.headlines
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel // Import for ViewModel
+import androidx.lifecycle.ViewModel
 import com.sparkly.headlines.data.model.Article
 import com.sparkly.headlines.data.model.Headline
 import com.sparkly.headlines.data.model.Source
-import com.sparkly.headlines.data.repository.MainRepository
-import com.sparkly.headlines.utils.NetworkHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
