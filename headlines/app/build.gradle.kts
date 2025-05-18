@@ -70,6 +70,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+    implementation("androidx.biometric:biometric:1.2.0-alpha05")
+
     // Networking
     implementation(libs.converter.moshi)
     implementation(libs.retrofit)
